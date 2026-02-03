@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hey Saurabh 💖</title>
+
+<style>
+body {
+margin: 0;
+min-height: 100vh;
+background: linear-gradient(135deg, #ffb6c1, #ffe4e1);
+font-family: Arial, sans-serif;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 20px;
+}
+
+.container {
+width: 100%;
+max-width: 500px;
+text-align: center;
+background: rgba(255, 255, 255, 0.25);
+padding: 30px 20px 40px;
+border-radius: 25px;
+box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+backdrop-filter: blur(10px);
+position: relative;
+}
+
+h1 {
+color: #c0392b;
+font-size: 2.1rem;
+margin-bottom: 15px;
+}
+
+p {
+font-size: 1.05rem;
+color: #7a1f1f;
+line-height: 1.7;
+}
+
+.heart {
+font-size: 3.5rem;
+animation: beat 1s infinite;
+margin-bottom: 10px;
+}
+
+@keyframes beat {
+0%, 100% { transform: scale(1); }
+50% { transform: scale(1.2); }
+}
+
+.buttons {
+margin-top: 30px;
+height: 140px;
+position: relative;
+}
+
+button {
+padding: 14px 28px;
+font-size: 1.05rem;
+border: none;
+border-radius: 30px;
+cursor: pointer;
+transition: 0.2s ease;
+position: absolute;
+}
+
+#yesBtn {
+background: #ff4d6d;
+color: white;
+left: 50%;
+top: 80px;
+transform: translateX(-50%);
+}
+
+#noBtn {
+background: #f1f1f1;
+color: #555;
+left: 50%;
+top: 10px;
+transform: translateX(-50%);
+}
+
+.note {
+margin-top: 15px;
+font-style: italic;
+color: #8b0000;
+min-height: 22px;
+}
+
+.hidden {
+display: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="main">
+
+<div class="heart">💖</div>
+
+<h1>Hey saurabh, will you be my Valentine? 💌</h1>
+
+<p>
+Hi my love,
+You came into my life like a soft sunrise, 
+warming parts of my heart I didn’t even know were cold. 
+With you, silence feels safe, laughter feels lighter, 
+and love feels like home.
+In your eyes, I see comfort. In your arms,
+I find peace. In your presence,
+I discover the version of myself that believes in forever. 
+Every little moment with you feels like destiny quietly choosing us.
+So today, with a heart full of gratitude and love, I ask you this—
+will you be my Valentine and keep choosing me, just as I choose you, every single day? 🌹❤️
+</p>
+
+<div class="buttons">
+<button id="noBtn">No</button>
+<button id="yesBtn">Yes! 💕</button>
+</div>
+
+<div class="note" id="note">
+Every moment with you feels like a dream come true…
+</div>
+
+</div>
+
+<div class="container hidden" id="success">
+<div class="heart">💞</div>
+<h1>YAY!!! 🥹❤️</h1>
+<p>
+You just made my heart the happiest.
+Thank you for choosing me — today and always.
+</p>
+</div>
+
+<script>
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+const note = document.getElementById("note");
+const buttonsBox = document.querySelector(".buttons");
+
+const messages = [
+"Try again 😏",
+"Wait… are you sure? 🥺",
+"No is not an option 😌",
+"Think again ❤️",
+"You know you want to say YES 😘"
+];
+
+function moveNo() {
+const boxWidth = buttonsBox.clientWidth - noBtn.offsetWidth;
+const boxHeight = buttonsBox.clientHeight - noBtn.offsetHeight;
+
+const x = Math.random() * boxWidth;
+const y = Math.random() * boxHeight;
+
+noBtn.style.left = x + "px";
+noBtn.style.top = y + "px";
+
+note.textContent = messages[Math.floor(Math.random() * messages.length)];
+}
+
+noBtn.addEventListener("mouseover", moveNo);
+noBtn.addEventListener("touchstart", moveNo);
+
+yesBtn.addEventListener("click", () => {
+document.getElementById("main").classList.add("hidden");
+document.getElementById("success").classList.remove("hidden");
+});
+</script>
+
+</body>
+</html>
